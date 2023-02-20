@@ -1,11 +1,13 @@
 const canvas = document.getElementById('canvas');
 const context = canvas.getContext('2d');
 
-const w = window.innerWidth;
-const h = window.innerHeight;
+const w = window.innerWidth - 50;
+const h = window.innerHeight - 50;
 
 canvas.width = w;
 canvas.height = h;
+
+let stopped = true;
 
 const gridh = Math.floor(h / 50);
 const gridw = Math.floor(w / 50);
@@ -74,7 +76,15 @@ function delay(time) {
     return new Promise(resolve => setTimeout(resolve, time));
 }
 
+function startstop() {
+    stopped = !stopped;
+}
+
 async function playConway() {
+    while (stopped) {
+        await delay(300);
+    }
+
     let newGrid = new Array(gridh);
     for (let i = 0; i < gridh; i++) {
         newGrid[i] = new Array(gridw).fill(false);
@@ -99,3 +109,4 @@ async function playConway() {
 }
 
 drawGrid();
+playConway();
