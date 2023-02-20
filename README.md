@@ -6,4 +6,4 @@ A Javascript implementation of Conway's Game of Life, rendered through HTML5 Can
 
 Flip the colour of a square on the grid by clicking.
 
-When you want to start, press the start button on the top.
+You can start and stop the next generation with the button on the top left.
